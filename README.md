@@ -6,9 +6,9 @@
 
 - [elastic](https://github.com/archie-yu/QABot/blob/master/qabot/bot/elastic.py)
 
-  Based on FQA and tags match, using [Elasticsearch](https://github.com/elastic/elasticsearch) for searching tags.
+  - Based on FQA and tags match, using [Elasticsearch](https://github.com/elastic/elasticsearch) for searching tags.
   
-  Run Elasticsearch before using this bot.
+  - Run Elasticsearch before using this bot.
 
 - TODO
 
