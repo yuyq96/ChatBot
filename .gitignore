@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+*.log
+*.pyc
+data/FQA.xml
+data/related.dic
