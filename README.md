@@ -1,6 +1,6 @@
 # QABot
 
-## A Question &amp; Answering Bot
+## Question &amp; Answering Bots
 
 ### Bots
 
