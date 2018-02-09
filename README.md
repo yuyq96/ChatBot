@@ -18,13 +18,13 @@
 
 - Clone project
 
-```sh
+```
 git clone https://github.com/archie-yu/QABot.git
 ```
 
 - Copy [`QABot.cfg.template`](https://github.com/archie-yu/QABot/blob/master/QABot.cfg.template) to `QABot.cfg`
 
-```sh
+```
 cd QABot
 cp QABot.cfg.template QABot.cfg
 ```
