@@ -14,11 +14,23 @@
 
 ## Getting Started
 
-### Demo
-See [`demo.py`](https://github.com/archie-yu/QABot/blob/master/demo.py)
-
 ### Settings
-Configure [`QABot.cfg`](https://github.com/archie-yu/QABot/blob/master/QABot.cfg)
+
+- Clone project
+
+```sh
+git clone https://github.com/archie-yu/QABot.git
+```
+
+- Copy [`QABot.cfg.template`](https://github.com/archie-yu/QABot/blob/master/QABot.cfg.template) to `QABot.cfg`
+
+```sh
+cd QABot
+cp QABot.cfg.template QABot.cfg
+```
+
+- Configure `QABot.cfg`
+
 ```cfg
 [CUSTOM]
 ;The FQA file path
@@ -31,5 +43,10 @@ TXT_NO_ANSWER = Sorry, xxx.
 LIMIT_TAGS_MATCH = 0.8
 ```
 
+### Demo
+
+See [`demo.py`](https://github.com/archie-yu/QABot/blob/master/demo.py)
+
 ## License
+
 [LGPL-3.0](https://github.com/archie-yu/QABot/blob/master/LICENSE)

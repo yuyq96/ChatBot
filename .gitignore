@@ -1,5 +1,6 @@
 .DS_Store
 .idea
+*.cfg
 *.log
 *.pyc
 data/FQA.xml
