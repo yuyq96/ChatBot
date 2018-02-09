@@ -27,6 +27,7 @@ if os.path.exists(CONFIG_FILE):
     PATH_FQA = PATH_DATA + config.get("CUSTOM", "PATH_FQA")
     PATH_RELATED_DIC = PATH_DATA + config.get("CUSTOM", "PATH_RELATED_DIC")
     TXT_NO_ANSWER = config.get("CUSTOM", "TXT_NO_ANSWER")
+    TXT_MEANINGLESS_ANSWER = config.get("CUSTOM", "TXT_MEANINGLESS_ANSWER")
     LIMIT_TAGS_MATCH = config.getfloat("CUSTOM", "LIMIT_TAGS_MATCH")
     # FQA_PATH = config.get("faq_path", "custom")
     # RELATED_DICT_PATH = config.get("related_dictionary_path", "custom")

@@ -98,7 +98,7 @@ class Bot:
                         "_type": self.doc_type,
                         "_source": {
                             "tag": child.text,
-                            "answer": TXT_NO_ANSWER
+                            "answer": TXT_MEANINGLESS_ANSWER
                         }
                     })
         meaningful = root[1]
