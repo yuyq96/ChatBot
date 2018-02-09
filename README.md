@@ -27,6 +27,8 @@ PATH_FQA = xxx/FQA.xml
 PATH_RELATED_DIC = xxx/related.dic
 ;The default return value if QABot can't find an proper answer
 TXT_NO_ANSWER = Sorry, xxx.
+;The minimum value of matched/total tags of a proper match
+LIMIT_TAGS_MATCH = 0.8
 ```
 
 ## License
