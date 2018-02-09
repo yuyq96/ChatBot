@@ -3,8 +3,6 @@ import logging
 
 from .bot import elastic
 
-logging.basicConfig(filename="QABot.log", level=logging.INFO)
-
 
 class QABot:
     def __init__(self, bot_type="elastic"):

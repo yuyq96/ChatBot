@@ -16,12 +16,16 @@ def llimit(num):
     return int(num * LIMIT_TAGS_MATCH)
 
 
-CONFIG_FILE = "QABot.cfg"
+PATH_MODULE = os.path.dirname(__file__) + "/../"
+PATH_DATA = PATH_MODULE + "data/"
+
+CONFIG_FILE = PATH_MODULE + "QABot.cfg"
+print(os.path.abspath(CONFIG_FILE))
 if os.path.exists(CONFIG_FILE):
     config = ConfigParser()
     config.read(CONFIG_FILE)
-    PATH_FQA = config.get("CUSTOM", "PATH_FQA")
-    PATH_RELATED_DIC = config.get("CUSTOM", "PATH_RELATED_DIC")
+    PATH_FQA = PATH_DATA + config.get("CUSTOM", "PATH_FQA")
+    PATH_RELATED_DIC = PATH_DATA + config.get("CUSTOM", "PATH_RELATED_DIC")
     TXT_NO_ANSWER = config.get("CUSTOM", "TXT_NO_ANSWER")
     LIMIT_TAGS_MATCH = config.getfloat("CUSTOM", "LIMIT_TAGS_MATCH")
     # FQA_PATH = config.get("faq_path", "custom")
