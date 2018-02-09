@@ -147,10 +147,16 @@ class Bot:
         }
         hits = self.elastic.search(doc_type=self.doc_type, body=body)["hits"]["hits"]
         if len(hits) > 0:
+            matched = 0
+            total = 0
             for tag in hits[0]["_source"]["tag"]:
-                if tag not in tag_list:
-                    return TXT_NO_ANSWER
-            return hits[0]["_source"]["answer"]
+                total += 1
+                if tag in tag_list:
+                    matched += 1
+            if matched >= limit(total):
+                return hits[0]["_source"]["answer"]
+            return TXT_NO_ANSWER
+
         else:
             logging.error("Question '%s' has no answer." % question)
             return TXT_NO_ANSWER
