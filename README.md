@@ -33,6 +33,7 @@ cp QABot.cfg.template QABot.cfg
 
 ```cfg
 [CUSTOM]
+;elastic
 ;The FQA file path
 PATH_FQA = xxx/FQA.xml
 ;The related word dictionary path
