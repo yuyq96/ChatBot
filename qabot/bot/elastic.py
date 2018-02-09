@@ -2,8 +2,8 @@
 import logging
 
 import jieba
-from qabot.settings import *
-from qabot.util.elastic import Elastic
+from ..settings import *
+from ..util.elastic import Elastic
 import xml.etree.ElementTree as ET
 
 

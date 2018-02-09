@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from qabot.bot import elastic
+from .bot import elastic
 
 logging.basicConfig(filename="QABot.log", level=logging.INFO)
 
