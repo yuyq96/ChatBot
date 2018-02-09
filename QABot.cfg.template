@@ -13,8 +13,8 @@ PATH_FQA = demo/FQA.xml
 ;The related word dictionary path
 PATH_RELATED_DIC = demo/related.dic
 ;The default return value if QABot can't find an proper answer
-TXT_NO_ANSWER = 暂时无法解答这个问题
+TXT_NO_ANSWER = Sorry, I don't know the answer of this question.
 ;The default return value if question is meaningless
-TXT_MEANINGLESS_ANSWER = 暂时无法理解这个问题，建议您提供更详细的描述哦！
+TXT_MEANINGLESS_ANSWER = Sorry, I can't understand your question.
 ;The minimum value of matched/total tags of a proper match
 LIMIT_TAGS_MATCH = 1.0
