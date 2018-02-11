@@ -1,14 +1,18 @@
-# QABot
+# ChatBot
 
-## Question &amp; Answering Bots
+## Bots
 
-### Bots
+### QA
 
 - [elastic](https://github.com/archie-yu/QABot/blob/master/qabot/bot/elastic.py)
 
   - Based on FQA and tags match, using [Elasticsearch](https://github.com/elastic/elasticsearch) for searching tags.
   
   - Run Elasticsearch before using this bot.
+
+- TODO
+
+### Talk
 
 - TODO
 
@@ -19,17 +23,17 @@
 - Clone project
 
 ```
-git clone https://github.com/archie-yu/QABot.git
+git clone https://github.com/archie-yu/ChatBot.git
 ```
 
-- Copy [`QABot.cfg.template`](https://github.com/archie-yu/QABot/blob/master/QABot.cfg.template) to `QABot.cfg`
+- Copy [`ChatBot.cfg.template`](https://github.com/archie-yu/ChatBot/blob/master/ChatBot.cfg.template) to `ChatBot.cfg`
 
 ```
-cd QABot
-cp QABot.cfg.template QABot.cfg
+cd ChatBot
+cp ChatBot.cfg.template ChatBot.cfg
 ```
 
-- Configure `QABot.cfg`
+- Configure `ChatBot.cfg`
 
 ```cfg
 [CUSTOM]
@@ -48,8 +52,8 @@ LIMIT_TAGS_MATCH = 0.8
 
 ### Demo
 
-See [`demo.py`](https://github.com/archie-yu/QABot/blob/master/demo.py)
+See [`demo.py`](https://github.com/archie-yu/ChatBot/blob/master/demo.py)
 
 ## License
 
-[LGPL-3.0](https://github.com/archie-yu/QABot/blob/master/LICENSE)
+[LGPL-3.0](https://github.com/archie-yu/ChatBot/blob/master/LICENSE)
