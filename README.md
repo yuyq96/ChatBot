@@ -60,6 +60,9 @@ TXT_NO_ANSWER = Sorry, xxx.
 TXT_MEANINGLESS_ANSWER = Sorry, xxx.
 ;The minimum value of matched/total tags of a proper match
 LIMIT_TAGS_MATCH = 0.8
+;http
+;The token you set in the Wechat public platform
+TOKEN_WECHAT = token
 ```
 
 ### Demo
