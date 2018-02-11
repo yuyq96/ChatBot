@@ -1,10 +1,10 @@
 # ChatBot
 
-## Bots
+## [Bots](https://github.com/archie-yu/ChatBot/tree/master/chatbot/bot)
 
 ### QA
 
-- [elastic](https://github.com/archie-yu/QABot/blob/master/qabot/bot/elastic.py)
+- [elastic](https://github.com/archie-yu/ChatBot/blob/master/qabot/bot/elastic.py)
 
   - Based on FQA and tags match, using [Elasticsearch](https://github.com/elastic/elasticsearch) for searching tags.
   
@@ -15,6 +15,18 @@
 ### Talk
 
 - TODO
+
+## [Service](https://github.com/archie-yu/ChatBot/tree/master/chatbot/util/service)
+
+- [http](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/http.py)
+
+  - Based on Tornado
+  
+  - Support Wechat public platform api
+
+- [wechat](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/wechat.py)
+
+  - Based on [ItChat](https://github.com/littlecodersh/ItChat), got some login problems now.
 
 ## Getting Started
 
