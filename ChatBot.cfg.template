@@ -21,5 +21,5 @@ TXT_MEANINGLESS_ANSWER = Sorry, I can't understand your question.
 ;The minimum value of matched/total tags of a proper match
 LIMIT_TAGS_MATCH = 1.0
 ;http
-;The token you got from the Wechat public platform
+;The token you set in the Wechat public platform
 TOKEN_WECHAT = token
