@@ -2,12 +2,15 @@
 import logging
 
 import jieba
+
+from .abstract import Bot as AbstractBot
 from ..settings import *
 from ..util.elastic import Elastic
 import xml.etree.ElementTree as ET
 
 
-class Bot:
+class Bot(AbstractBot):
+
     def __init__(self):
         self.elastic = Elastic("qabot")
         self.doc_type = "fqa"
@@ -108,7 +111,7 @@ class Bot:
             for tag in qa.findall("tag"):
                 for child in tag:
                     tags.append(child.text)
-            answer = ET.tostring(qa.find("answer"), encoding="utf-8").decode("utf-8")[8:-12].strip()
+            answer = ET.tostring(qa.find("answer"), encoding="utf-8").decode("utf-8")[8:-18].strip()
             self.elastic.add(action={
                 "_type": self.doc_type,
                 "_source": {

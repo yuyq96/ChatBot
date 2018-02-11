@@ -19,7 +19,7 @@ def llimit(num):
 PATH_MODULE = os.path.dirname(__file__) + "/../"
 PATH_DATA = PATH_MODULE + "data/"
 
-CONFIG_FILE = PATH_MODULE + "QABot.cfg"
+CONFIG_FILE = PATH_MODULE + "ChatBot.cfg"
 print(os.path.abspath(CONFIG_FILE))
 if os.path.exists(CONFIG_FILE):
     config = ConfigParser()

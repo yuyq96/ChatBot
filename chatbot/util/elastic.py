@@ -6,6 +6,7 @@ from elasticsearch.helpers import bulk
 
 
 class Elastic:
+
     es = Elasticsearch()
     actions = []
 
