@@ -20,13 +20,15 @@
 
 - [http](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/http.py)
 
-  - Based on Tornado
+  - Based on [Tornado](https://github.com/tornadoweb/tornado).
   
-  - Support Wechat public platform api
+  - Support Wechat public platform api.
 
 - [wechat](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/wechat.py)
 
-  - Based on [ItChat](https://github.com/littlecodersh/ItChat), got some login problems now.
+  - Based on [ItChat](https://github.com/littlecodersh/ItChat).
+  
+  - Got some login problems now.
 
 ## Getting Started
 
