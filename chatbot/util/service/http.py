@@ -16,6 +16,7 @@ from . import receive
 from . import reply
 from .abstract import Service
 from ...bot.abstract import Bot
+from ...settings import *
 
 define("port", default=80, help="Run server on the given port", type=int)
 
@@ -102,7 +103,7 @@ class Http(Service):
                 echo_str = self.get_argument("echostr")
                 if not (signature and timestamp and nonce and echo_str):
                     return "hello, this is handle view"
-                token = "riach"
+                token = TOKEN_WECHAT
 
                 alist = [token.encode("utf-8"), timestamp.encode("utf-8"), nonce.encode("utf-8")]
                 alist.sort()
