@@ -4,7 +4,7 @@
 
 ### QA
 
-- [elastic](https://github.com/archie-yu/ChatBot/blob/master/qabot/bot/elastic.py)
+- [elastic](https://github.com/archie-yu/ChatBot/blob/master/chatbot/bot/elastic.py)
 
   - Based on FQA and tags match, using [Elasticsearch](https://github.com/elastic/elasticsearch) for searching tags.
   
@@ -20,7 +20,7 @@
 
 - [http](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/http.py)
 
-  - Based on Tornado
+  - Based on Tornado
   
   - Support Wechat public platform api
 
