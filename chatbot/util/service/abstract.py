@@ -8,12 +8,13 @@ from chatbot.bot.abstract import Bot
 
 class Service:
 
-    def __init__(self, bot):
-        self.running = False
-        self.bot = None
-        self.bot(bot)
+    running = False
+    bot = None
 
-    def bot(self, bot):
+    def __init__(self, bot):
+        self.set_bot(bot)
+
+    def set_bot(self, bot):
         if isinstance(bot, Bot):
             self.bot = bot
             return True
