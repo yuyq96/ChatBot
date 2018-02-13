@@ -4,7 +4,7 @@ import itchat
 from .abstract import WechatService
 
 
-class _Wechat(WechatService):
+class Wechat(WechatService):
 
     def _start(self):
         itchat.auto_login(hotReload=False, enableCmdQR=False)
@@ -13,7 +13,7 @@ class _Wechat(WechatService):
     def _stop(self):
         itchat.logout()
 
-wechat = _Wechat(None)
+wechat = Wechat(None)
 
 
 @itchat.msg_register(itchat.content.TEXT)

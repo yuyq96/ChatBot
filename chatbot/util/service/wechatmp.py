@@ -5,7 +5,7 @@ from .abstract import WechatService
 from ...settings import *
 
 
-class _WechatMP(WechatService):
+class WechatMP(WechatService):
 
     def _start(self):
         itchatmp.update_config(itchatmp.WechatConfig(
@@ -18,7 +18,7 @@ class _WechatMP(WechatService):
     def _stop(self):
         pass
 
-wechatmp = _WechatMP(None)
+wechatmp = WechatMP(None)
 
 
 @itchatmp.msg_register(itchatmp.content.TEXT)
