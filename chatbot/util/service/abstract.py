@@ -17,10 +17,10 @@ class Service:
     def set_bot(self, bot):
         if isinstance(bot, Bot):
             self.bot = bot
-            return True
+            return self
         else:
             logging.error("%s is not a Bot" % str(bot))
-            return False
+            return None
 
     def start(self):
         if self.bot:
@@ -58,15 +58,19 @@ class WechatService(Service):
 
     def set_text_handler(self, handler):
         self.text_handler = handler
+        return self
 
     def set_voice_handler(self, handler):
         self.voice_handler = handler
+        return self
 
     def set_image_handler(self, handler):
         self.image_handler = handler
+        return self
 
     def set_video_handler(self, handler):
         self.video_handler = handler
+        return self
 
     def handle_text(self, msg):
         if self.text_handler:
