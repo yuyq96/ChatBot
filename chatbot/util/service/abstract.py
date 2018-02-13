@@ -55,7 +55,7 @@ class WechatService(Service):
 
     text_handler = None
     voice_handler = None
-    picture_handler = None
+    image_handler = None
     video_handler = None
 
     def set_text_handler(self, handler):
@@ -82,9 +82,9 @@ class WechatService(Service):
         elif self.bot:
             pass
 
-    def _handle_picture(self, msg):
-        if self.picture_handler:
-            return self.picture_handler(msg)
+    def _handle_image(self, msg):
+        if self.image_handler:
+            return self.image_handler(msg)
         elif self.bot:
             pass
 

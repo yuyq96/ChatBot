@@ -23,7 +23,7 @@ class Wechat(WechatService):
 
     @itchat.msg_register(itchat.content.PICTURE)
     def handle_picture(self, msg):
-        self._handle_picture(msg)
+        self._handle_image(msg)
 
     @itchat.msg_register(itchat.content.VIDEO)
     def handle_video(self, msg):

@@ -9,9 +9,10 @@ class WechatMP(WechatService):
 
     def _start(self):
         itchatmp.update_config(itchatmp.WechatConfig(
-            token=WECHAT_TOKEN,
-            appId=WECHAT_APP_ID,
-            appSecret=WECHAT_APP_SECRET))
+                token=WECHAT_TOKEN,
+                appId=WECHAT_APP_ID,
+                appSecret=WECHAT_APP_SECRET),
+            filterRequest=True)
         itchatmp.run()
 
     def _stop(self):
@@ -25,9 +26,9 @@ class WechatMP(WechatService):
     def handle_voice(self, msg):
         self._handle_voice(msg)
 
-    @itchatmp.msg_register(itchatmp.content.PICTURE)
-    def handle_picture(self, msg):
-        self._handle_picture(msg)
+    @itchatmp.msg_register(itchatmp.content.IMAGE)
+    def handle_image(self, msg):
+        self._handle_image(msg)
 
     @itchatmp.msg_register(itchatmp.content.VIDEO)
     def handle_video(self, msg):
