@@ -5,7 +5,7 @@ from .abstract import WechatService
 from ...settings import *
 
 
-class WechatMP(WechatService):
+class _WechatMP(WechatService):
 
     def _start(self):
         itchatmp.update_config(itchatmp.WechatConfig(
@@ -18,22 +18,24 @@ class WechatMP(WechatService):
     def _stop(self):
         pass
 
-    @staticmethod
-    @itchatmp.msg_register(itchatmp.content.TEXT)
-    def _handle_text(msg):
-        return WechatService.handle_text(WechatService(super), msg)
+wechatmp = _WechatMP(None)
 
-    @staticmethod
-    @itchatmp.msg_register(itchatmp.content.VOICE)
-    def _handle_voice(msg):
-        return WechatService.handle_voice(WechatService(super), msg)
 
-    @staticmethod
-    @itchatmp.msg_register(itchatmp.content.IMAGE)
-    def _handle_image(msg):
-        return WechatService.handle_image(WechatService(super), msg)
+@itchatmp.msg_register(itchatmp.content.TEXT)
+def _handle_text(msg):
+    return wechatmp.handle_text(msg)
 
-    @staticmethod
-    @itchatmp.msg_register(itchatmp.content.VIDEO)
-    def _handle_video(msg):
-        return WechatService.handle_video(WechatService(super), msg)
+
+@itchatmp.msg_register(itchatmp.content.VOICE)
+def _handle_voice(msg):
+    return wechatmp.handle_voice(msg)
+
+
+@itchatmp.msg_register(itchatmp.content.IMAGE)
+def _handle_image(msg):
+    return wechatmp.handle_image(msg)
+
+
+@itchatmp.msg_register(itchatmp.content.VIDEO)
+def _handle_video(msg):
+    return wechatmp.handle_video(msg)
