@@ -23,19 +23,19 @@ wechatmp = _WechatMP(None)
 
 @itchatmp.msg_register(itchatmp.content.TEXT)
 def _handle_text(msg):
-    return wechatmp.handle_text(msg['Text'])
+    return wechatmp.handle_text(msg)
 
 
 @itchatmp.msg_register(itchatmp.content.VOICE)
 def _handle_voice(msg):
-    return wechatmp.handle_voice(msg['Voice'])
+    return wechatmp.handle_voice(msg)
 
 
 @itchatmp.msg_register(itchatmp.content.IMAGE)
 def _handle_image(msg):
-    return wechatmp.handle_image(msg['Image'])
+    return wechatmp.handle_image(msg)
 
 
 @itchatmp.msg_register(itchatmp.content.VIDEO)
 def _handle_video(msg):
-    return wechatmp.handle_video(msg['Video'])
+    return wechatmp.handle_video(msg)
