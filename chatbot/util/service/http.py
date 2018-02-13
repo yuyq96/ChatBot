@@ -15,8 +15,6 @@ from tornado.options import define, options
 from . import receive
 from . import reply
 from .abstract import Service
-from ...bot.abstract import Bot
-from ...settings import *
 
 define("port", default=80, help="Run server on the given port", type=int)
 
@@ -33,14 +31,7 @@ class Executor(ThreadPoolExecutor):
 
 class Http(Service):
 
-    def __init__(self, bot):
-        if isinstance(bot, Bot):
-            self.bot = bot
-        else:
-            self.bot = None
-            logging.error("%s is not a Bot" % str(bot))
-
-    def start(self):
+    def _start(self):
         tornado.options.parse_command_line()
         app = tornado.web.Application(handlers=[
             (r"/", Http.BaseHandler, dict(bot=self.bot)),
@@ -51,7 +42,7 @@ class Http(Service):
         logging.info("Running server on port %u", options.port)
         tornado.ioloop.IOLoop.instance().start()
 
-    def stop(self):
+    def _stop(self):
         pass
 
     class BaseHandler(tornado.web.RequestHandler):
@@ -124,7 +115,6 @@ class Http(Service):
             # try:
             web_data = self.request.body
             logging.info("Handle Post web data is %s" % web_data)
-            # 后台打日志
             recMsg = receive.parse_xml(web_data)
             if isinstance(recMsg, receive.TextMsg):
                 toUser = recMsg.FromUserName
@@ -137,7 +127,7 @@ class Http(Service):
                     replyMsg = reply.TextMsg(toUser, fromUser, content)
                     self.write(replyMsg.send())
             else:
-                logging.info("Unknown data.")
+                logging.info("Unknown data")
                 self.write("success")
             # except Exception as e:
             #     logging.error(type(e))
@@ -147,7 +137,7 @@ class Http(Service):
             if self.bot:
                 return self.bot.answer(q).replace("<br />", "\n")
             else:
-                return "Bot error."
+                return "Bot error"
 
         def data_received(self, chunk):
             pass

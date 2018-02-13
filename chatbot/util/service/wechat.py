@@ -1,40 +1,30 @@
 # -*- coding: utf-8 -*-
-import logging
-
 import itchat
 
-from .abstract import Service
-from chatbot.bot.abstract import Bot
+from .abstract import WechatService
 
 
-class Wechat(Service):
-    def __init__(self, bot):
-        self.running = False
-        if isinstance(bot, Bot):
-            self.bot = bot
-        else:
-            self.bot = None
-            logging.error("%s is not a Bot" % str(bot))
+class Wechat(WechatService):
 
-    def bot(self, bot):
-        if isinstance(bot, Bot):
-            self.bot = bot
-            return True
-        else:
-            return False
+    def _start(self):
+        itchat.auto_login(hotReload=False, enableCmdQR=False)
+        itchat.run()
+
+    def _stop(self):
+        itchat.logout()
 
     @itchat.msg_register(itchat.content.TEXT)
-    def _reply(self, msg):
-        if self.bot:
-            return self.bot.answer(msg.text)
+    def handle_text(self, msg):
+        self._handle_text(msg)
 
-    def start(self):
-        if self.bot:
-            itchat.auto_login(hotReload=False, enableCmdQR=False)
-            itchat.run()
-            self.running = True
+    @itchat.msg_register(itchat.content.VOICE)
+    def handle_voice(self, msg):
+        self._handle_voice(msg)
 
-    def stop(self):
-        if not self.running:
-            self.running = False
-            itchat.logout()
+    @itchat.msg_register(itchat.content.PICTURE)
+    def handle_picture(self, msg):
+        self._handle_picture(msg)
+
+    @itchat.msg_register(itchat.content.VIDEO)
+    def handle_video(self, msg):
+        self._handle_video(msg)

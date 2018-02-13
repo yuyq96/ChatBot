@@ -24,11 +24,11 @@ print(os.path.abspath(CONFIG_FILE))
 if os.path.exists(CONFIG_FILE):
     config = ConfigParser()
     config.read(CONFIG_FILE)
-    # elastic
     PATH_FQA = PATH_DATA + config.get("CUSTOM", "PATH_FQA")
     PATH_RELATED_DIC = PATH_DATA + config.get("CUSTOM", "PATH_RELATED_DIC")
+    LIMIT_TAGS_MATCH = config.getfloat("CUSTOM", "LIMIT_TAGS_MATCH")
+    WECHAT_TOKEN = config.get("CUSTOM", "WECHAT_TOKEN")
+    WECHAT_APP_ID = config.get("CUSTOM", "WECHAT_APP_ID")
+    WECHAT_APP_SECRET = config.get("CUSTOM", "WECHAT_APP_SECRET")
     TXT_NO_ANSWER = config.get("CUSTOM", "TXT_NO_ANSWER")
     TXT_MEANINGLESS_ANSWER = config.get("CUSTOM", "TXT_MEANINGLESS_ANSWER")
-    LIMIT_TAGS_MATCH = config.getfloat("CUSTOM", "LIMIT_TAGS_MATCH")
-    # http
-    TOKEN_WECHAT = config.get("CUSTOM", "TOKEN_WECHAT")

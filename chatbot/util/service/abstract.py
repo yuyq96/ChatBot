@@ -1,11 +1,95 @@
 # -*- coding: utf-8 -*-
+import logging
+
 from abc import abstractmethod
+
+from chatbot.bot.abstract import Bot
 
 
 class Service:
 
-    @abstractmethod
-    def start(self): pass
+    def __init__(self, bot):
+        self.running = False
+        if isinstance(bot, Bot):
+            self.bot = bot
+        else:
+            self.bot = None
+            logging.error("%s is not a Bot" % str(bot))
+
+    def bot(self, bot):
+        if isinstance(bot, Bot):
+            self.bot = bot
+            return True
+        else:
+            logging.error("%s is not a Bot" % str(bot))
+            return False
+
+    def start(self):
+        if self.bot:
+            self._start()
+            self.running = True
+            logging.error("Service started")
+
+    def stop(self):
+        if not self.running:
+            self._stop()
+            self.running = False
+            logging.error("Service stopped")
 
     @abstractmethod
-    def stop(self): pass
+    def _start(self): pass
+
+    @abstractmethod
+    def _stop(self): pass
+
+
+class WechatService(Service):
+
+    @abstractmethod
+    def _start(self):
+        pass
+
+    @abstractmethod
+    def _stop(self):
+        pass
+
+    text_handler = None
+    voice_handler = None
+    picture_handler = None
+    video_handler = None
+
+    def set_text_handler(self, handler):
+        self.text_handler = handler
+        return self
+
+    def set_voice_handler(self, handler):
+        self.voice_handler = handler
+        return self
+
+    def set_video_handler(self, handler):
+        self.video_handler = handler
+        return self
+
+    def _handle_text(self, msg):
+        if self.text_handler:
+            return self.text_handler(msg)
+        elif self.bot:
+            return self.bot.answer(msg.text)
+
+    def _handle_voice(self, msg):
+        if self.voice_handler:
+            return self.voice_handler(msg)
+        elif self.bot:
+            pass
+
+    def _handle_picture(self, msg):
+        if self.picture_handler:
+            return self.picture_handler(msg)
+        elif self.bot:
+            pass
+
+    def _handle_video(self, msg):
+        if self.video_handler:
+            return self.video_handler(msg)
+        elif self.bot:
+            pass

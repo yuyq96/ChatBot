@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-from chatbot.util.service.wechat import Wechat
 from .bot import elastic
 from .util.service.http import Http
+from .util.service.wechat import Wechat
+from .util.service.wechatmp import WechatMP
 
 
 class ChatBot:
@@ -22,3 +23,5 @@ class ChatBot:
             return Http(self.bot)
         elif name.lower() == "wechat":
             return Wechat(self.bot)
+        elif name.lower() == "wechatmp":
+            return WechatMP(self.bot)

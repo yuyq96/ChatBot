@@ -1,25 +1,27 @@
 [DEFAULT]
-;elastic
-PATH_FQA = FQA.xml
-PATH_RELATED_DIC = related.dic
-TXT_NO_ANSWER = Sorry, I don't know the answer of this question.
-TXT_MEANINGLESS_ANSWER = Sorry, I can't understand your question.
-LIMIT_TAGS_MATCH = 0.8
-;http
-TOKEN_WECHAT = token
 
-[CUSTOM]
-;elastic
+;FQA
 ;The FQA file path
-PATH_FQA = demo/FQA.xml
+PATH_FQA = FQA.xml
 ;The related word dictionary path
-PATH_RELATED_DIC = demo/related.dic
-;The default return value if QABot can't find an proper answer
+PATH_RELATED_DIC = related.dic
+
+;Tags match
+;The minimum value of matched/total tags of a proper match
+LIMIT_TAGS_MATCH = 0.8
+
+;Wechat Mass Platform
+WECHAT_TOKEN = yourToken
+WECHAT_APP_ID = yourAppId
+WECHAT_APP_SECRET = yourAppSecret
+
+;Text
+;The default return value if ChatBot can't find an proper answer
 TXT_NO_ANSWER = Sorry, I don't know the answer of this question.
 ;The default return value if question is meaningless
 TXT_MEANINGLESS_ANSWER = Sorry, I can't understand your question.
-;The minimum value of matched/total tags of a proper match
+
+[CUSTOM]
+PATH_FQA = demo/FQA.xml
+PATH_RELATED_DIC = demo/related.dic
 LIMIT_TAGS_MATCH = 1.0
-;http
-;The token you set in the Wechat public platform
-TOKEN_WECHAT = token
