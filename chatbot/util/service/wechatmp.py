@@ -20,16 +20,16 @@ class WechatMP(WechatService):
 
     @itchatmp.msg_register(itchatmp.content.TEXT)
     def handle_text(self, msg):
-        self._handle_text(msg)
+        return self._handle_text(msg)
 
     @itchatmp.msg_register(itchatmp.content.VOICE)
     def handle_voice(self, msg):
-        self._handle_voice(msg)
+        return self._handle_voice(msg)
 
     @itchatmp.msg_register(itchatmp.content.IMAGE)
     def handle_image(self, msg):
-        self._handle_image(msg)
+        return self._handle_image(msg)
 
     @itchatmp.msg_register(itchatmp.content.VIDEO)
     def handle_video(self, msg):
-        self._handle_video(msg)
+        return self._handle_video(msg)

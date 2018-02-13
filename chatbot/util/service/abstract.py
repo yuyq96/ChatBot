@@ -60,15 +60,15 @@ class WechatService(Service):
 
     def set_text_handler(self, handler):
         self.text_handler = handler
-        return self
 
     def set_voice_handler(self, handler):
         self.voice_handler = handler
-        return self
+
+    def set_image_handler(self, handler):
+        self.image_handler = handler
 
     def set_video_handler(self, handler):
         self.video_handler = handler
-        return self
 
     def _handle_text(self, msg):
         if self.text_handler:
