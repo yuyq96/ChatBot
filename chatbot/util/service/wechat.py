@@ -18,19 +18,19 @@ wechat = _Wechat(None)
 
 @itchat.msg_register(itchat.content.TEXT)
 def _handle_text(msg):
-    return wechat.handle_text(msg)
+    return wechat.handle_text(msg["Text"])
 
 
 @itchat.msg_register(itchat.content.VOICE)
 def _handle_voice(msg):
-    return wechat.handle_voice(msg)
+    return wechat.handle_voice(msg["Voice"])
 
 
 @itchat.msg_register(itchat.content.PICTURE)
 def _handle_picture(msg):
-    return wechat.handle_image(msg)
+    return wechat.handle_image(msg["Picture"])
 
 
 @itchat.msg_register(itchat.content.VIDEO)
 def _handle_video(msg):
-    return wechat.handle_video(msg)
+    return wechat.handle_video(msg["Video"])
