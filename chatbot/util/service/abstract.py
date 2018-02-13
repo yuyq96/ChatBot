@@ -10,11 +10,8 @@ class Service:
 
     def __init__(self, bot):
         self.running = False
-        if isinstance(bot, Bot):
-            self.bot = bot
-        else:
-            self.bot = None
-            logging.error("%s is not a Bot" % str(bot))
+        self.bot = None
+        self.bot(bot)
 
     def bot(self, bot):
         if isinstance(bot, Bot):
@@ -70,25 +67,25 @@ class WechatService(Service):
     def set_video_handler(self, handler):
         self.video_handler = handler
 
-    def _handle_text(self, msg):
+    def handle_text(self, msg):
         if self.text_handler:
             return self.text_handler(msg)
         elif self.bot:
             return self.bot.answer(msg.text)
 
-    def _handle_voice(self, msg):
+    def handle_voice(self, msg):
         if self.voice_handler:
             return self.voice_handler(msg)
         elif self.bot:
             pass
 
-    def _handle_image(self, msg):
+    def handle_image(self, msg):
         if self.image_handler:
             return self.image_handler(msg)
         elif self.bot:
             pass
 
-    def _handle_video(self, msg):
+    def handle_video(self, msg):
         if self.video_handler:
             return self.video_handler(msg)
         elif self.bot:

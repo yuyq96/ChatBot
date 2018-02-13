@@ -18,18 +18,22 @@ class WechatMP(WechatService):
     def _stop(self):
         pass
 
+    @staticmethod
     @itchatmp.msg_register(itchatmp.content.TEXT)
-    def handle_text(self, msg):
-        return self._handle_text(msg)
+    def _handle_text(msg):
+        return WechatService.handle_text(WechatService(super), msg)
 
+    @staticmethod
     @itchatmp.msg_register(itchatmp.content.VOICE)
-    def handle_voice(self, msg):
-        return self._handle_voice(msg)
+    def _handle_voice(msg):
+        return WechatService.handle_voice(WechatService(super), msg)
 
+    @staticmethod
     @itchatmp.msg_register(itchatmp.content.IMAGE)
-    def handle_image(self, msg):
-        return self._handle_image(msg)
+    def _handle_image(msg):
+        return WechatService.handle_image(WechatService(super), msg)
 
+    @staticmethod
     @itchatmp.msg_register(itchatmp.content.VIDEO)
-    def handle_video(self, msg):
-        return self._handle_video(msg)
+    def _handle_video(msg):
+        return WechatService.handle_video(WechatService(super), msg)
