@@ -5,4 +5,4 @@ from abc import abstractmethod
 class Bot:
 
     @abstractmethod
-    def answer(self, question): pass
+    def answer(self, uid, question): pass

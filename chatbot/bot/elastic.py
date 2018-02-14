@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
-import logging
+import xml.etree.ElementTree as ET
 
 import jieba
 
 from .abstract import Bot as AbstractBot
 from ..settings import *
 from ..util.elastic import Elastic
-import xml.etree.ElementTree as ET
 
 
 class Bot(AbstractBot):
@@ -127,7 +126,7 @@ class Bot(AbstractBot):
         self.load()
         logging.info("Elastic initialized.")
 
-    def answer(self, question):
+    def answer(self, uid, question):
         logging.info("Question '%s'" % question)
         seg_list = jieba.cut_for_search(question)
         tag_list = []
@@ -159,7 +158,6 @@ class Bot(AbstractBot):
             if matched >= limit(total):
                 return hits[0]["_source"]["answer"]
             return TXT_NO_ANSWER
-
         else:
             logging.error("Question '%s' has no answer." % question)
             return TXT_NO_ANSWER

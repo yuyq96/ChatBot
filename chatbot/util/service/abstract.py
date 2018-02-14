@@ -74,24 +74,24 @@ class WechatService(Service):
 
     def handle_text(self, msg):
         if self.text_handler:
-            return self.text_handler(msg)
+            return self.text_handler(self.bot, msg)
         elif self.bot:
-            return self.bot.answer(msg['Content']).replace("<br />", "\n")
+            return self.bot.answer(msg['FromUserName'], msg['Content'])
 
     def handle_voice(self, msg):
         if self.voice_handler:
-            return self.voice_handler(msg)
+            return self.voice_handler(self.bot, msg)
         elif self.bot:
             pass
 
     def handle_image(self, msg):
         if self.image_handler:
-            return self.image_handler(msg)
+            return self.image_handler(self.bot, msg)
         elif self.bot:
             pass
 
     def handle_video(self, msg):
         if self.video_handler:
-            return self.video_handler(msg)
+            return self.video_handler(self.bot, msg)
         elif self.bot:
             pass
