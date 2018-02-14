@@ -1,6 +1,10 @@
 # ChatBot
 
-## [Bots](https://github.com/archie-yu/ChatBot/tree/master/chatbot/bot)
+Various chatbots, including question & answering type and daily conversation type.
+
+Various platforms, including http, Wechat and Wechat Mass Platform.
+
+## Bots
 
 ### QA
 
@@ -16,13 +20,13 @@
 
 - TODO
 
-## [Service](https://github.com/archie-yu/ChatBot/tree/master/chatbot/util/service)
+## Platforms
 
 - [http](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/http.py)
 
   - Based on [Tornado](https://github.com/tornadoweb/tornado).
   
-  - Support Wechat public platform api.
+  - Support Wechat Mass Platform api.
 
 - [wechat](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/wechat.py)
 
@@ -30,9 +34,17 @@
   
   - Got some login problems now.
 
+- [wechatmp](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/wechatmp.py)
+
+  - Based on [ItChatmp](https://github.com/littlecodersh/ItChatmp).
+
 ## Getting Started
 
 ### Settings
+
+- Dependencies
+
+  [`Elasticsearch`](https://github.com/elastic/elasticsearch) + [`IK Analysis`](https://github.com/medcl/elasticsearch-analysis-ik), [`Tornado`](https://github.com/tornadoweb/tornado), [`ItChat`](https://github.com/littlecodersh/ItChat), [`ItChatmp`](https://github.com/littlecodersh/ItChatmp)
 
 - Clone project
 
@@ -48,24 +60,6 @@ cp ChatBot.cfg.template ChatBot.cfg
 ```
 
 - Configure `ChatBot.cfg`
-
-```cfg
-[CUSTOM]
-;elastic
-;The FQA file path
-PATH_FQA = xxx/FQA.xml
-;The related word dictionary path
-PATH_RELATED_DIC = xxx/related.dic
-;The default return value if QABot can't find an proper answer
-TXT_NO_ANSWER = Sorry, xxx.
-;The default return value if question is meaningless
-TXT_MEANINGLESS_ANSWER = Sorry, xxx.
-;The minimum value of matched/total tags of a proper match
-LIMIT_TAGS_MATCH = 0.8
-;http
-;The token you set in the Wechat public platform
-TOKEN_WECHAT = token
-```
 
 ### Demo
 
