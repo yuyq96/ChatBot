@@ -18,7 +18,7 @@ class _WechatMP(WechatService):
     def _stop(self):
         pass
 
-wechatmp = _WechatMP(None)
+wechatmp = _WechatMP()
 
 
 @itchatmp.msg_register(itchatmp.content.TEXT)

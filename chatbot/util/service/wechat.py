@@ -13,7 +13,7 @@ class _Wechat(WechatService):
     def _stop(self):
         itchat.logout()
 
-wechat = _Wechat(None)
+wechat = _Wechat()
 
 
 @itchat.msg_register(itchat.content.TEXT)

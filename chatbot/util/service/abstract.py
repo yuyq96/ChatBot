@@ -8,11 +8,9 @@ from chatbot.bot.abstract import Bot
 
 class Service:
 
-    running = False
-    bot = None
-
-    def __init__(self, bot):
-        self.set_bot(bot)
+    def __init__(self):
+        self.running = False
+        self.bot = None
 
     def set_bot(self, bot):
         if isinstance(bot, Bot):
