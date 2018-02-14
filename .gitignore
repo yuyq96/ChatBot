@@ -3,6 +3,7 @@
 *.cfg
 *.log
 *.pyc
+*.pkl
 main.py
 data/FQA.xml
 data/related.dic
