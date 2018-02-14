@@ -14,6 +14,7 @@ LIMIT_TAGS_MATCH = 0.8
 WECHAT_TOKEN = yourToken
 WECHAT_APP_ID = yourAppId
 WECHAT_APP_SECRET = yourAppSecret
+WECHAT_ENCODING_AES_KEY = yourEncodingAESKey
 
 ;Text
 ;The default return value if ChatBot can't find an proper answer

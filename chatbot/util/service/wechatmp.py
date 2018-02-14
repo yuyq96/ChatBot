@@ -11,7 +11,10 @@ class _WechatMP(WechatService):
         itchatmp.update_config(itchatmp.WechatConfig(
                 token=WECHAT_TOKEN,
                 appId=WECHAT_APP_ID,
-                appSecret=WECHAT_APP_SECRET),
+                appSecret=WECHAT_APP_SECRET,
+                encryptMode=itchatmp.content.SAFE,
+                encodingAesKey=WECHAT_ENCODING_AES_KEY
+                ),
             filterRequest=True)
         itchatmp.run()
 
