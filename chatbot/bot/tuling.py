@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import json
 import requests
 
 from .abstract import Bot as AbstractBot
@@ -16,10 +17,10 @@ class Bot(AbstractBot):
         pass
 
     def answer(self, uid, question):
-        json = {
+        params = {
             "key": TULING_API_KEY,
             "userid": uid,
             "info": question
         }
-        r = requests.get(Bot.URL, params=json)
-        return r.text
+        r = requests.get(Bot.URL, params=params)
+        return json.loads(r.text)["text"]
