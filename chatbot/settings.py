@@ -29,6 +29,7 @@ if os.path.exists(CONFIG_FILE):
     PATH_FQA = PATH_DATA + config.get("CUSTOM", "PATH_FQA")
     PATH_RELATED_DIC = PATH_DATA + config.get("CUSTOM", "PATH_RELATED_DIC")
     LIMIT_TAGS_MATCH = config.getfloat("CUSTOM", "LIMIT_TAGS_MATCH")
+    TULING_API_KEY = config.get("CUSTOM", "TULING_API_KEY")
     WECHAT_TOKEN = config.get("CUSTOM", "WECHAT_TOKEN")
     WECHAT_APP_ID = config.get("CUSTOM", "WECHAT_APP_ID")
     WECHAT_APP_SECRET = config.get("CUSTOM", "WECHAT_APP_SECRET")

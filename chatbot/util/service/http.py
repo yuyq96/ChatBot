@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import datetime
 import hashlib
-import logging
 from concurrent.futures import ThreadPoolExecutor
 
 import tornado.concurrent
@@ -15,8 +14,7 @@ from tornado.options import define, options
 from . import receive
 from . import reply
 from .abstract import Service
-
-define("port", default=80, help="Run server on the given port", type=int)
+from ...settings import *
 
 
 class Executor(ThreadPoolExecutor):
@@ -31,11 +29,18 @@ class Executor(ThreadPoolExecutor):
 
 class Http(Service):
 
+    handler = None
+
+    def set_handler(self, handler):
+        self.handler = handler
+        return self
+
     def _start(self):
+        define("port", default=80, help="Run server on the given port", type=int)
         tornado.options.parse_command_line()
         app = tornado.web.Application(handlers=[
-            (r"/", Http.BaseHandler, dict(bot=self.bot)),
-            (r"/wx", Http.WeixinHandler, dict(bot=self.bot))
+            (r"/", Http.BaseHandler, dict(handler=self.handler)),
+            (r"/wx", Http.WeixinHandler, dict(handler=self.handler))
         ])
         http_server = tornado.httpserver.HTTPServer(app)
         http_server.listen(options.port)
@@ -48,10 +53,10 @@ class Http(Service):
     class BaseHandler(tornado.web.RequestHandler):
 
         executor = Executor()
-        bot = None
+        handler = None
 
-        def initialize(self, bot):
-            self.bot = bot
+        def initialize(self, handler):
+            self.handler = handler
 
         @tornado.web.asynchronous
         @tornado.gen.coroutine
@@ -70,10 +75,10 @@ class Http(Service):
 
         @tornado.concurrent.run_on_executor
         def answer(self, uid, q):
-            if self.bot:
-                return self.bot.answer(q)
+            if self.handler:
+                return self.handler(uid, q)
             else:
-                return "Bot error."
+                return "Missing handler."
 
         def data_received(self, chunk):
             pass
@@ -81,10 +86,10 @@ class Http(Service):
     class WeixinHandler(tornado.web.RequestHandler):
 
         executor = Executor()
-        bot = None
+        handler = None
 
-        def initialize(self, bot):
-            self.bot = bot
+        def initialize(self, handler):
+            self.handler = handler
 
         def get(self):
             try:
@@ -94,7 +99,7 @@ class Http(Service):
                 echo_str = self.get_argument("echostr")
                 if not (signature and timestamp and nonce and echo_str):
                     return "hello, this is handle view"
-                token = TOKEN_WECHAT
+                token = WECHAT_TOKEN
 
                 alist = [token.encode("utf-8"), timestamp.encode("utf-8"), nonce.encode("utf-8")]
                 alist.sort()
@@ -112,7 +117,6 @@ class Http(Service):
         @tornado.web.asynchronous
         @tornado.gen.coroutine
         def post(self):
-            # try:
             web_data = self.request.body
             logging.info("Handle Post web data is %s" % web_data)
             recMsg = receive.parse_xml(web_data)
@@ -129,15 +133,13 @@ class Http(Service):
             else:
                 logging.info("Unknown data")
                 self.write("success")
-            # except Exception as e:
-            #     logging.error(type(e))
 
         @tornado.concurrent.run_on_executor
         def answer(self, uid, q):
-            if self.bot:
-                return self.bot.answer(q).replace("<br />", "\n")
+            if self.handler:
+                return self.handler(uid, q).replace("<br />", "\n")
             else:
-                return "Bot error"
+                return "Missing handler."
 
         def data_received(self, chunk):
             pass

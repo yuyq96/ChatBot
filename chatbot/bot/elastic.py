@@ -18,6 +18,11 @@ class Bot(AbstractBot):
         jieba.enable_parallel(4)
         jieba.initialize()
 
+    def init(self):
+        self.create(delete_if_exist=True)
+        self.load()
+        logging.info("Elastic initialized.")
+
     def create(self, delete_if_exist=False):
         if self.elastic.exist():
             if delete_if_exist:
@@ -120,11 +125,6 @@ class Bot(AbstractBot):
                 }
             })
         self.elastic.commit()
-
-    def init_elastic(self):
-        self.create(delete_if_exist=True)
-        self.load()
-        logging.info("Elastic initialized.")
 
     def answer(self, uid, question):
         logging.info("Question '%s'" % question)

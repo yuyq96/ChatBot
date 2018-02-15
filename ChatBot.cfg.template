@@ -10,6 +10,9 @@ PATH_RELATED_DIC = related.dic
 ;The minimum value of matched/total tags of a proper match
 LIMIT_TAGS_MATCH = 0.8
 
+;Tuling
+TULING_API_KEY = yourApiKey
+
 ;Wechat Mass Platform
 WECHAT_TOKEN = yourToken
 WECHAT_APP_ID = yourAppId
