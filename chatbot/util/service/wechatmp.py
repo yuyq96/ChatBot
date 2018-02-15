@@ -15,7 +15,7 @@ class _WechatMP(WechatService):
                 encryptMode=itchatmp.content.SAFE,
                 encodingAesKey=WECHAT_ENCODING_AES_KEY
                 ),
-            filterRequest=True)
+            filterRequest=False)
         itchatmp.run()
 
     def _stop(self):
