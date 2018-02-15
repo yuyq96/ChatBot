@@ -36,9 +36,9 @@ class ChatBot:
 
     def answer(self, uid, question):
         for key, bot in self.bots.items():
+            logging.info("Answering with %s bot" % key)
             answer = bot.answer(uid, question)
             if answer != TXT_NO_ANSWER and answer != TXT_MEANINGLESS_ANSWER:
-                logging.info("Answer with %s bot" % key)
                 return answer
 
     def add_service(self, name):
