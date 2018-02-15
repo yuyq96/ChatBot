@@ -35,7 +35,7 @@ class ChatBot:
             bot.init()
 
     def answer(self, uid, question):
-        for _, bot in self.bots:
+        for _, bot in self.bots.items():
             answer = bot.answer(uid, question)
             if answer != TXT_NO_ANSWER and answer != TXT_MEANINGLESS_ANSWER:
                 return answer
@@ -69,9 +69,9 @@ class ChatBot:
             service.stop()
 
     def start_all(self):
-        for _, service in self.services:
+        for _, service in self.services.items():
             service.start()
 
     def stop_all(self):
-        for _, service in self.services:
+        for _, service in self.services.items():
             service.stop()
