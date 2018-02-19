@@ -1,8 +1,6 @@
 # ChatBot
 
-Various chatbots, including question & answering type and daily conversation type.
-
-Various platforms, including http, Wechat and Wechat Mass Platform.
+Support multiple chatbots, targeted for questions & answers or daily conversation, and multiple API, including http, Wechat and Wechat Mass Platform.
 
 ## Bots
 
@@ -18,15 +16,19 @@ Various platforms, including http, Wechat and Wechat Mass Platform.
 
 ### Talk
 
-- TODO
+- [tuling](https://github.com/archie-yu/ChatBot/blob/master/chatbot/bot/tuling.py)
 
-## Platforms
+  - Based on [Tuling Robot](http://www.tuling123.com).
+  
+  - Get your API key from the Tuling Robot [website](http://www.tuling123.com) and set it in the `ChatBot.cfg`.
+
+## API
 
 - [http](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/http.py)
 
   - Based on [Tornado](https://github.com/tornadoweb/tornado).
   
-  - Support Wechat Mass Platform api.
+  - Support Wechat Mass Platform API.
 
 - [wechat](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/wechat.py)
 
@@ -37,6 +39,8 @@ Various platforms, including http, Wechat and Wechat Mass Platform.
 - [wechatmp](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/wechatmp.py)
 
   - Based on [ItChatmp](https://github.com/littlecodersh/ItChatmp).
+  
+  - Get your token, appID, appSecret from the Wechat Mass Platform [website](https://mp.weixin.qq.com/) and set it in the `ChatBot.cfg`.
 
 ## Getting Started
 
