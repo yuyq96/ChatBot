@@ -39,15 +39,13 @@ See [`demo.py`](https://github.com/archie-yu/ChatBot/blob/master/demo.py)
   
   - Run Elasticsearch before using this bot.
 
-- TODO
-
 ### Talk
 
 - [tuling](https://github.com/archie-yu/ChatBot/blob/master/chatbot/bot/tuling.py)
 
   - Based on [Tuling Robot](http://www.tuling123.com).
   
-  - Get your API key from the Tuling Robot [website](http://www.tuling123.com) and set it in the `ChatBot.cfg`.
+  - Get your API key from the Tuling Robot [website](http://www.tuling123.com) and set it in the `ChatBot.cfg` before using this bot.
 
 ## API
 
@@ -67,7 +65,7 @@ See [`demo.py`](https://github.com/archie-yu/ChatBot/blob/master/demo.py)
 
   - Based on [ItChatmp](https://github.com/littlecodersh/ItChatmp).
   
-  - Get your token, appID, appSecret from the Wechat Mass Platform [website](https://mp.weixin.qq.com/) and set it in the `ChatBot.cfg`.
+  - Get your token, appID, appSecret from the Wechat Mass Platform [website](https://mp.weixin.qq.com/) and set them in the `ChatBot.cfg`  before using this API.
 
 ## License
 
