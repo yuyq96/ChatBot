@@ -59,7 +59,7 @@ See [`demo.py`](https://github.com/archie-yu/ChatBot/blob/master/demo.py)
 
   - Based on [ItChat](https://github.com/littlecodersh/ItChat).
   
-  - Got some login problems now.
+  - Not recommanded as it may get some login problems.
 
 - [wechatmp](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/wechatmp.py)
 
