@@ -53,7 +53,7 @@ See [`demo.py`](https://github.com/archie-yu/ChatBot/blob/master/demo.py)
 
   - Based on [Tornado](https://github.com/tornadoweb/tornado).
   
-  - Support Wechat Mass Platform API.
+  - Support Wechat Mass Platform API. (Get your token from the Wechat Mass Platform [website](https://mp.weixin.qq.com/) and set it in the `ChatBot.cfg`  if you want to support it)
 
 - [wechat](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/wechat.py)
 
