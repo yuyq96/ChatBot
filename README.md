@@ -35,37 +35,37 @@ See [`demo.py`](https://github.com/archie-yu/ChatBot/blob/master/demo.py)
 
 - [elastic](https://github.com/archie-yu/ChatBot/blob/master/chatbot/bot/elastic.py)
 
-  - Based on FQA and tags match, using [Elasticsearch](https://github.com/elastic/elasticsearch) for searching tags.
-  
-  - Run Elasticsearch before using this bot.
+  > Based on FQA and tags match, using [Elasticsearch](https://github.com/elastic/elasticsearch) for searching tags.
+  >
+  > Run Elasticsearch before using this bot.
 
 ### Talk
 
 - [tuling](https://github.com/archie-yu/ChatBot/blob/master/chatbot/bot/tuling.py)
 
-  - Based on [Tuling Robot](http://www.tuling123.com).
-  
-  - Get your API key from the Tuling Robot [website](http://www.tuling123.com) and set it in the `ChatBot.cfg` before using this bot.
+  > Based on [Tuling Robot](http://www.tuling123.com).
+  >
+  > Get your API key from the Tuling Robot [website](http://www.tuling123.com) and set it in the `ChatBot.cfg` before using this bot.
 
 ## API
 
 - [http](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/http.py)
 
-  - Based on [Tornado](https://github.com/tornadoweb/tornado).
-  
-  - Support Wechat Mass Platform API. (Get your token from the Wechat Mass Platform [website](https://mp.weixin.qq.com/) and set it in the `ChatBot.cfg`  if you want to support it)
+  > Based on [Tornado](https://github.com/tornadoweb/tornado).
+  >
+  > Support Wechat Mass Platform API. (Get your token from the Wechat Mass Platform [website](https://mp.weixin.qq.com/) and set it in the `ChatBot.cfg`  if you want to support it)
 
 - [wechat](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/wechat.py)
 
-  - Based on [ItChat](https://github.com/littlecodersh/ItChat).
-  
-  - Not recommanded as it may get some login problems.
+  > Based on [ItChat](https://github.com/littlecodersh/ItChat).
+  >
+  > Not recommanded as it may get some login problems.
 
 - [wechatmp](https://github.com/archie-yu/ChatBot/blob/master/chatbot/util/service/wechatmp.py)
 
-  - Based on [ItChatmp](https://github.com/littlecodersh/ItChatmp).
-  
-  - Get your token, appID, appSecret from the Wechat Mass Platform [website](https://mp.weixin.qq.com/) and set them in the `ChatBot.cfg`  before using this API.
+  > Based on [ItChatmp](https://github.com/littlecodersh/ItChatmp).
+  >
+  > Get your token, appID, appSecret from the Wechat Mass Platform [website](https://mp.weixin.qq.com/) and set them in the `ChatBot.cfg`  before using this API.
 
 ## License
 
