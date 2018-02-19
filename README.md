@@ -1,5 +1,9 @@
 # ChatBot
 
+![beta](https://img.shields.io/badge/version-beta-orange.svg)
+![py3](https://img.shields.io/badge/python-3-green.svg)
+[![license](https://img.shields.io/badge/license-LGPL-lightgrey.svg)](https://github.com/archie-yu/ChatBot/blob/master/LICENSE)
+
 Support multiple chatbots, targeted for questions & answers or daily conversation, and multiple API, including http, Wechat and Wechat Mass Platform.
 
 ## Getting Started
@@ -66,7 +70,3 @@ See [`demo.py`](https://github.com/archie-yu/ChatBot/blob/master/demo.py)
   > Based on [ItChatmp](https://github.com/littlecodersh/ItChatmp).
   >
   > Get your token, appID, appSecret from the Wechat Mass Platform [website](https://mp.weixin.qq.com/) and set them in the `ChatBot.cfg`  before using this API.
-
-## License
-
-[LGPL-3.0](https://github.com/archie-yu/ChatBot/blob/master/LICENSE)
