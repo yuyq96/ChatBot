@@ -22,5 +22,5 @@ class Bot(AbstractBot):
             "userid": uid,
             "info": question
         }
-        r = requests.get(Bot.URL, params=params)
+        r = requests.post(Bot.URL, params=params)
         return json.loads(r.text)["text"]
