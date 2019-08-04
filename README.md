@@ -50,7 +50,15 @@ Aggregation environment of multiple chatbots targeted for questions & answers or
 
 - Dependencies
 
-  [`Elasticsearch`](https://github.com/elastic/elasticsearch) + [`IK Analysis`](https://github.com/medcl/elasticsearch-analysis-ik) [`Tornado`](https://github.com/tornadoweb/tornado) [`ItChat`](https://github.com/littlecodersh/ItChat) [`ItChatmp`](https://github.com/littlecodersh/ItChatmp)
+  [`Elasticsearch`](https://github.com/elastic/elasticsearch) + [`IK Analysis`](https://github.com/medcl/elasticsearch-analysis-ik)
+  
+  - options
+  
+    - [`Tornado`](https://github.com/tornadoweb/tornado) for http
+  
+    - [`ItChat`](https://github.com/littlecodersh/ItChat) for wechat
+  
+    - [`ItChatmp`](https://github.com/littlecodersh/ItChatmp) for wechatmp
 
 - Clone project
 
