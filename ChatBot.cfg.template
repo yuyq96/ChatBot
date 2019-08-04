@@ -3,11 +3,13 @@
 ;FQA
 ;The FQA file path
 PATH_FQA = FQA.xml
+;Index in elasticsearch
+INDEX = chatbot
+;Document type in elasticsearch, question|tag are supported
+DOC_TYPE = tag
 ;The related word dictionary path
 PATH_RELATED_DIC = related.dic
-
-;Tags match
-;The minimum value of matched/total tags of a proper match
+;The minimum value of matched/total tags of a proper match, only valid when DOC_TYPE=tag
 LIMIT_TAGS_MATCH = 0.8
 
 ;Tuling
@@ -27,5 +29,7 @@ TXT_MEANINGLESS_ANSWER = Sorry, I can't understand your question.
 
 [CUSTOM]
 PATH_FQA = demo/FQA.xml
+INDEX = chatbot
+DOC_TYPE = tag
 PATH_RELATED_DIC = demo/related.dic
 LIMIT_TAGS_MATCH = 1.0
