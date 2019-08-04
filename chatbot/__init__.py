@@ -1,10 +1,5 @@
 # -*- coding: utf-8 -*-
-from .bot import elastic
-from .bot import tuling
 from .settings import *
-from .util.service.http import Http
-from .util.service.wechat import wechat
-from .util.service.wechatmp import wechatmp
 
 
 class ChatBot:
@@ -14,53 +9,67 @@ class ChatBot:
         self.services = dict()
 
     def add_bot(self, name):
-        if name.lower() == "elastic":
-            self.bots["elastic"] = elastic.Bot()
-        elif name.lower() == "tuling":
-            self.bots["tuling"] = tuling.Bot()
-        return self
+        name = name.lower()
+        assert name in ['elastic', 'tuling']
+        if self.bots.get(name) is None:
+            if name == 'elastic':
+                from .bot import elastic
+                bot = elastic.Bot()
+            else:
+                from .bot import tuling
+                bot = tuling.Bot()
+            self.bots[name] = bot
+        return bot
 
     def list_bot(self):
         return self.bots.keys()
 
-    def get_bot(self, key):
-        bot = self.bots.get(key)
+    def get_bot(self, name):
+        name = name.lower()
+        bot = self.bots.get(name)
         if not bot:
-            logging.error("Bot %s not exist" % key)
+            logging.error(f'Bot {name} not exist')
         return bot
 
-    def init(self, key):
-        bot = self.get_bot(key)
+    def init(self, name):
+        bot = self.get_bot(name)
         if bot:
             bot.init()
 
     def answer(self, uid, question):
-        for key, bot in self.bots.items():
-            logging.info("Answering with %s bot" % key)
+        for name, bot in self.bots.items():
+            logging.info(f'Answering with {name} bot')
             answer = bot.answer(uid, question)
             if answer != TXT_NO_ANSWER and answer != TXT_MEANINGLESS_ANSWER:
                 return answer
 
     def add_service(self, name):
-        if name.lower() == "http":
-            self.services["http"] = Http()
-        elif name.lower() == "wechat":
-            self.services["wechat"] = wechat
-        elif name.lower() == "wechatmp":
-            self.services["wechatmp"] = wechatmp
-        return self
+        name = name.lower()
+        assert name in ['http', 'wechat', 'wechatmp']
+        if name == 'http':
+            from .util.service.http import Http
+            service = Http()
+        elif name == 'wechat':
+            from .util.service.wechat import wechat
+            service = wechat
+        else:
+            from .util.service.wechatmp import wechatmp
+            service = wechatmp
+        self.services[name] = service
+        return service
 
     def list_service(self):
         return self.services.keys()
 
-    def get_service(self, key):
-        service = self.services.get(key)
+    def get_service(self, name):
+        name = name.lower()
+        service = self.services.get(name)
         if not service:
-            logging.error("Service %s not exist" % key)
+            logging.error(f'Service {name} not exist')
         return service
 
-    def start(self, key):
-        service = self.get_service(key)
+    def start(self, name):
+        service = self.get_service(name)
         if service:
             service.start()
 
