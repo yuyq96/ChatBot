@@ -11,8 +11,8 @@ from ..util.elastic import Elastic
 class Bot(AbstractBot):
 
     def __init__(self):
-        self.elastic = Elastic("qabot")
-        self.doc_type = "fqa"
+        self.elastic = Elastic(INDEX)
+        self.doc_type = DOC_TYPE
         self.related = None
         logging.info("Bot initialized.")
         jieba.enable_parallel(4)
