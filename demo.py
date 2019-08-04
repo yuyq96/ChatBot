@@ -8,11 +8,13 @@ def text_handler(bot, msg):
     answer = bot.answer(uid, text)
     return answer.replace("<br />", "\n")
 
+
 if __name__ == "__main__":
-    chatbot = ChatBot("elastic")
+    chatbot = ChatBot()
+    bot = chatbot.add_bot('elastic')
     # comment below to avoid reloading FQA and other data, o.w. you should wait for a while before using the bot.
-    chatbot.reload()
-    service = chatbot.service("wechatmp").set_text_handler(text_handler)
+    bot.init()
+    service = chatbot.add_service('http').set_handler(text_handler).listen(9201)
     try:
         service.start()
     except KeyboardInterrupt:
