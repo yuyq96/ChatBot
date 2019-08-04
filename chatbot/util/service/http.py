@@ -58,7 +58,6 @@ class Http(Service):
         def initialize(self, handler):
             self.handler = handler
 
-        @tornado.web.asynchronous
         @tornado.gen.coroutine
         def get(self):
             uid = self.get_argument("uid")
@@ -114,7 +113,6 @@ class Http(Service):
             except Exception as e:
                 logging.error(type(e))
 
-        @tornado.web.asynchronous
         @tornado.gen.coroutine
         def post(self):
             web_data = self.request.body
