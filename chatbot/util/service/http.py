@@ -35,16 +35,19 @@ class Http(Service):
         self.handler = handler
         return self
 
+    def listen(self, port, addr='0.0.0.0'):
+        self.port = port
+        self.addr = addr
+        return self
+
     def _start(self):
-        define("port", default=80, help="Run server on the given port", type=int)
-        tornado.options.parse_command_line()
         app = tornado.web.Application(handlers=[
             (r"/", Http.BaseHandler, dict(handler=self.handler)),
             (r"/wx", Http.WeixinHandler, dict(handler=self.handler))
         ])
         http_server = tornado.httpserver.HTTPServer(app)
-        http_server.listen(options.port)
-        logging.info("Running server on port %u", options.port)
+        http_server.listen(self.port, address=self.addr)
+        logging.info(f'Running server on {self.addr}:{self.port}')
         tornado.ioloop.IOLoop.instance().start()
 
     def _stop(self):
