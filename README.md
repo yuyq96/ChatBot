@@ -2,6 +2,8 @@
 
 ![](https://img.shields.io/badge/version-beta-orange.svg)
 ![](https://img.shields.io/badge/python-3-green.svg)
+![](https://img.shields.io/badge/Tornado-6-blue.svg)
+![](https://img.shields.io/badge/Elasticsearch-7-blue.svg)
 [![](https://img.shields.io/badge/license-LGPL-000000.svg)](https://github.com/archie-yu/ChatBot/blob/master/LICENSE)
 
 Aggregation environment of multiple chatbots targeted for questions & answers or daily conversation. Support multiple API, including http, Wechat and Wechat Mass Platform.
