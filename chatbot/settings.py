@@ -28,7 +28,7 @@ if os.path.exists(CONFIG_FILE):
     config.read(CONFIG_FILE)
     PATH_FQA = PATH_DATA + config.get("CUSTOM", "PATH_FQA")
     INDEX = config.get("CUSTOM", "INDEX")
-    DOC_TYPE = config.get("CUSTOM", "DOC_TYPE")
+    QA_TYPE = config.get("CUSTOM", "QA_TYPE")
     PATH_RELATED_DIC = PATH_DATA + config.get("CUSTOM", "PATH_RELATED_DIC")
     LIMIT_TAGS_MATCH = config.getfloat("CUSTOM", "LIMIT_TAGS_MATCH")
     TULING_API_KEY = config.get("CUSTOM", "TULING_API_KEY")

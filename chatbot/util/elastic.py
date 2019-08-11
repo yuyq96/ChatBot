@@ -46,8 +46,11 @@ class Elastic:
         if len(self.actions) >= 100:
             self.commit()
 
-    def search(self, doc_type, body):
-        return self.es.search(index=self.index, doc_type=doc_type, body=body)
+    def search(self, body, doc_type=None):
+        if doc_type is not None:
+            return self.es.search(index=self.index, doc_type=doc_type, body=body)
+        else:
+            return self.es.search(index=self.index, body=body)
 
     def commit(self):
         success, error = bulk(self.es, self.actions, index=self.index, raise_on_error=True)

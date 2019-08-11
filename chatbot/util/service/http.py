@@ -42,12 +42,12 @@ class Http(Service):
 
     def _start(self):
         app = tornado.web.Application(handlers=[
-            (r"/", Http.BaseHandler, dict(handler=self.handler)),
-            (r"/wx", Http.WeixinHandler, dict(handler=self.handler))
+            (r'/cs', Http.BaseHandler, dict(handler=self.handler)),
+            (r'/wx', Http.WeixinHandler, dict(handler=self.handler))
         ])
         http_server = tornado.httpserver.HTTPServer(app)
         http_server.listen(self.port, address=self.addr)
-        logging.info(f'Running server on {self.addr}:{self.port}')
+        logging.info(f'Tornado:listen:{self.addr}:{self.port}')
         tornado.ioloop.IOLoop.instance().start()
 
     def _stop(self):
@@ -63,24 +63,27 @@ class Http(Service):
 
         @tornado.gen.coroutine
         def get(self):
-            uid = self.get_argument("uid")
-            q = self.get_argument("q")
-            if q:
-                logging.info("[HttpHandler] uid=%s,q=%s" % (uid, q))
-                future = self.executor.submit(self.answer, uid, q)
-                response = yield tornado.gen.with_timeout(datetime.timedelta(10), future,
-                                                          quiet_exceptions=tornado.gen.TimeoutError)
-                if response:
-                    self.write(response.result())
-            else:
-                self.write("Missing question.")
+            uid = self.get_argument('uid')
+            q = self.get_argument('q')
+            logging.info(f'HttpHandler:uid={uid},q={q}')
+            # -> not functioning now
+            # future = self.executor.submit(self.answer, uid, q)
+            # response = yield tornado.gen.with_timeout(datetime.timedelta(10), future,
+            #                                           quiet_exceptions=tornado.gen.TimeoutError)
+            # -> missing tornado.gen.Task
+            # response = yield tornado.gen.Task(self.answer, uid, q)
+            response = yield self.answer(uid, q)
+            if response:
+                # self.write(response.result())
+                self.write(response)
 
-        @tornado.concurrent.run_on_executor
+        # @tornado.concurrent.run_on_executor
+        @tornado.gen.coroutine
         def answer(self, uid, q):
             if self.handler:
                 return self.handler(uid, q)
             else:
-                return "Missing handler."
+                logging.error('HttpHandler:missing handler')
 
         def data_received(self, chunk):
             pass
@@ -140,7 +143,7 @@ class Http(Service):
             if self.handler:
                 return self.handler(uid, q).replace("<br />", "\n")
             else:
-                return "Missing handler."
+                logging.error('[WeixinHandler] missing handler.')
 
         def data_received(self, chunk):
             pass
